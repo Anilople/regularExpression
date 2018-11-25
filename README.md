@@ -2,7 +2,9 @@
 
 这是一个解析正则表达式的小程序, 使用C/C++编写.
 
-## NFA.h 和 NFA.cpp
+## 后端部分
+
+### NFA.h 和 NFA.cpp
 
 最底层的部分, `NFA`代表`Nondeterministic Finite Accepters`, 主要是非确定性自动机单个节点的数据结构, 使用字符`'\0'`来代表$\lambda$转移, 有些资料也叫做$\epsilon$转移.
 
@@ -26,7 +28,7 @@ typedef struct NFA
 int isMatchNFA(const char *str, const NFA *nfa);
 ```
 
-## NFA_SE.h 和 NFA_SE.cpp
+### NFA_SE.h 和 NFA_SE.cpp
 
 `NFA_SE`代表``Nondeterministic Finite Accepters start and end`,  用来保存自动机的开始节点和结束节点, 起到封装自动机的作用.
 
@@ -53,3 +55,25 @@ NFA_SE makeAND(NFA_SE a, NFA_SE b);
 NFA_SE makeStar(NFA_SE a);
 ```
 
+## 前端部分
+
+### frontEnd.h 和 frontEnd.cpp
+
+负责将某个字符串转为非确定自动机, 未完成
+
+主要函数有
+
+```c
+NFA_SE parseRegularExpressionWithParentheses(const char str[]); // 支持括号
+```
+
+这个函数可以parse一个字符串, 并返回一个非确定自动机, 不支持现代正则的[]和{}
+
+关键字符如下
+
+| 字符 | 作用                                                         |
+| ---- | ------------------------------------------------------------ |
+| ( )  | 运算的优先级, 在括号内的会优先运算                           |
+| &    | 与运算, 串联自动机, "(a&b)"代表必须匹配"ab"                  |
+| \|   | 或运算, 并联自动机, "(a\|b)"代表匹配可以匹配的字符串有"a", "b" |
+| *    | 星闭环(star closure), 用来修饰字符或者表达式, "a*"可以匹配任意数量的'a'构成的字符串 |

@@ -10,11 +10,11 @@ int main()
 	// NFA_SE aClone = getNewNFA_SE_deepClone(a);
 	//NFA_SE all = makeRange(makeOR(a, c), 3, 6);
 	 //printNFADotRecursive(all.start);
-	const char *str = "cebeadadaebdd";
-	const char *pattern = "";
+	const char *str = "abacabacacac";
+	const char *pattern = "(a&(b|c))*";
 	//NFA_SE all = parseRegularExpressionOrigin(pattern);
 	NFA_SE all = parseRegularExpressionWithParentheses(pattern);
-	 printNFADotRecursive(all.start);
-	//printf("%s is %d", str, isMatchNFA_SE(str, all));
+	// printNFADotRecursive(all.start);
+	printf("%s is %d", str, isMatchNFA_SE(str, all));
 	return 0;
 }
