@@ -6,6 +6,7 @@
 
 ```shell
 git clone https://github.com/Anilople/regularExpression.git
+cd regularExpression
 make run
 cat result.txt
 ```
