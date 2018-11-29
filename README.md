@@ -2,6 +2,18 @@
 
 这是一个解析正则表达式的小程序, 使用C/C++编写.
 
+## 使用
+
+```shell
+git clone https://github.com/Anilople/regularExpression.git
+make run
+cat result.txt
+```
+
+提供了一些样例在`example.txt`中, 当执行`make run`后, `example.txt`中的数据会被`main.cpp`中的代码读入, 然后调用背后的api, 来进行正则匹配, 运行的结果会保存在文件'result.txt'中
+
+`example.txt`中的格式为, 每个一个待匹配的字符串(左边), 以及模式字符串(右边), 他们中间间隔了一个空格, 这是为了方便程序的输入, `main.cpp`中使用`cin`来进行输入, `cin`遇到空格会中断, 所以如果要匹配空格, 得需要改变程序的输入方式.
+
 ## 后端部分
 
 ### NFA.h 和 NFA.cpp

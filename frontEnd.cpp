@@ -1,4 +1,5 @@
 #include "NFA_SE.h"
+#include <stdio.h>
 #include <stack>
 #include <vector>
 

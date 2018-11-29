@@ -12,14 +12,16 @@ void printNFADot(NFA *nfa)
 	}
 
 	if (nfa->next0) {
-		printf("\"%x\" -> \"%x\" [ label = \"%c\"]\n", nfa, nfa->next0, nfa->edgeValue0);
+		printf("\"0x%llx\" -> \"0x%llx\" [ label = \"%c\"]\n", 
+		(unsigned long long)(nfa), (unsigned long long)(nfa->next0), nfa->edgeValue0);
 	}
 	else {
 
 	}
 
 	if (nfa->next1) {
-		printf("\"%x\" -> \"%x\" [ label = \"%c\"]\n", nfa, nfa->next1, nfa->edgeValue1);
+		printf("\"0x%llx\" -> \"0x%llx\" [ label = \"%c\"]\n", 
+		(unsigned long long)(nfa), (unsigned long long)(nfa->next1), nfa->edgeValue1);
 	}
 	else {
 
